@@ -1,12 +1,13 @@
 import { Module, forwardRef } from "@nestjs/common";
-import { JwtModule } from "@nestjs/jwt";
 import { AuthModule } from "src/auth/auth.module";
-import { GatewayController } from "./gateway.service";
+import { RedisModule } from "src/redis/redis.module";
+import { GatewayService } from "./gateway.service";
 
 @Module({
-    providers: [GatewayController],
+    providers: [GatewayService],
     imports: [
-        forwardRef(() => AuthModule)
+        forwardRef(() => AuthModule),
+        forwardRef(() => RedisModule),
     ]
 })
 export class GatewayModule { }

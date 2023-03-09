@@ -1,12 +1,12 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { SchemaTypes, Types } from 'mongoose';
+import { Types } from 'mongoose';
 
 @Schema()
 export class User {
     @ApiProperty({ example: 1, description: 'Unique ID' })
-    @Prop({ type: SchemaTypes.ObjectId, ref: User.name })
-    userid: User;
+    @Prop({ type: Types.ObjectId })
+    _id: string;
 
     @ApiProperty({ example: 'John Doe', description: 'Username' })
     @Prop({ required: true })

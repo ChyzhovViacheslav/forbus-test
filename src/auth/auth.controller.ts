@@ -6,10 +6,11 @@ import { AuthService } from "./auth.service";
 @ApiTags('Authorization')
 @Controller('auth')
 export class AuthController {
-    constructor(private authService: AuthService) {}
+    constructor(
+        private authService: AuthService) {}
 
     @Post('/login')
-    login(@Body() userDto: CreateUserDto){
+    async login(@Body() userDto: CreateUserDto){
         return this.authService.login(userDto)
     }
 
