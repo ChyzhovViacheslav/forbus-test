@@ -1,7 +1,6 @@
-import { Controller, Post, Get, Put, Delete, Body, UseGuards, UsePipes } from '@nestjs/common';
+import { Controller, Post, Get, Put, Delete, Body, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { ValidationPipe } from 'src/pipes/validation.pipe';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.schema';
 import { UserService } from './user.service';

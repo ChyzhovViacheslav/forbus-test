@@ -24,6 +24,7 @@ export class AuthController {
     }
 
     @Delete('/delete')
-    delete(){
+    delete(@Body() userDto: CreateUserDto){
+        return this.authService.delete(userDto)
     }
 }

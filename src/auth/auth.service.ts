@@ -48,7 +48,9 @@ export class AuthService {
     }
 
     async delete(userDto: CreateUserDto){
-        
+        const user = await this.validateUser(userDto)
+        user.deleteOne()
+        return 'User deleted'
     }
 
     private async generateToken(user: User){
